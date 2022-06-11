@@ -4,20 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <link type="stylesheet" src="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
 </head>
-<body>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <header class="header">Weather Dashboard</header>
+
+    <body class="flex column min-100-vh">
+        <div class="col-12 col-md-4"
+        <header>
+            <h1 class="container">Weather Dashboard</h1>
+            <p id="header-undertext">Search for an area and get the weather forecasts from trusted sources!</p>
+        </header>
+        
+        <main class="flex-row justify-space-between">
+            <div class="container">
+                <h3 class="search-form" for="location">SEARCH LOCATION</h3>
+                <form id="search-label" class="text-input">
+                    <input name="location" id="location" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn">Submit Search</button>
+                </form>
+            </div>
+
+            <div class="container">
+                <h3 class="container-header">Popular Cities <span id=listed-cities></span></h3>
+                <div id="cities-container" class="listed-cities">
+            </div>
+
+            <div class="col-12 col-md-8">
+                <h2 class="under-text">Showing Area For: <span id="map-search-term"></span></h2>
+                <div id="map-container" class="listed-map">
+
+            </div>
+        </main>
             
 
 
