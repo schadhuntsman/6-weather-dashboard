@@ -12,7 +12,7 @@ var formSubmissionPiece = function (event) {
     var location = locationEntryEl.value.trim();
 
     if (location) {
-        getLocationInfo(location);
+        getLocations(location);
 
         //clear content
         mapContainerEl.textContent = "";
@@ -21,27 +21,17 @@ var formSubmissionPiece = function (event) {
         alert("Please enter a location");
     }
 
-
 }
 
 var submitClickAction = function (event) {
     //getting the city attribue from clicked element
     var local = event.target.getAttribute("cities-container")
-}
+
+};
 
 var getLocations = function (local) {
     // format the weather api
-    var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + local.value +
-        '&appid=34e427a196fd7b57ef7effa0b02aee0c'
-
-    // fetch('https://api.openweathermap.org/data/2.5/weather?q=' + local.value + 
-    // '&appid=34e427a196fd7b57ef7effa0b02aee0c')
-
-    // .then(response => response.json())
-    // .then(data = console.log(data))
-
-    // .catch(function(error) {
-    //             alert('Unable to load site')
+    var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchFormEl.value + '&appid=34e427a196fd7b57ef7effa0b02aee0c'
 
     // make a get request to the url
     fetch(weatherApiUrl)
@@ -62,7 +52,9 @@ var getLocations = function (local) {
         });
 };
 
+
 //show popular cities!!!
+
 
 var showLocation = function (locals, localSearch) {
     //check if api returned any locations
@@ -89,3 +81,13 @@ var showLocation = function (locals, localSearch) {
 
 //add listeners to forms
 searchFormEl.addEventListener('submit', formSubmissionPiece);
+
+//cut fetch logic
+    // fetch('https://api.openweathermap.org/data/2.5/weather?q=' + local.value + 
+    // '&appid=34e427a196fd7b57ef7effa0b02aee0c')
+
+    // .then(response => response.json())
+    // .then(data = console.log(data))
+
+    // .catch(function(error) {
+    //             alert('Unable to load site')
