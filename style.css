@@ -52,7 +52,7 @@ main {
 
 #header-undertext {
     max-width: 65%;
-    text-align: ;
+    /* text-align: ; */
     margin-left: 10px;
     align-items: top;
     position: relative;

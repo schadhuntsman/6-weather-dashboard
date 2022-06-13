@@ -7,7 +7,7 @@ var mapSearchTerm = document.querySelector("#map-search-term");
 var formSubmissionPiece = function (event) {
     //prevent page from refreshing
     event.preventDefault();
-
+    console.log(event);
     //get value from location input
     var location = locationEntryEl.value.trim();
 
@@ -26,12 +26,14 @@ var formSubmissionPiece = function (event) {
 var submitClickAction = function (event) {
     //getting the city attribue from clicked element
     var local = event.target.getAttribute("cities-container")
-
+    console.log(event);
+    console.log(local);
 };
 
 var getLocations = function (local) {
     // format the weather api
-    var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchFormEl.value + '&appid=34e427a196fd7b57ef7effa0b02aee0c'
+    var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' 
+    + searchFormEl.value + '&appid=34e427a196fd7b57ef7effa0b02aee0c'
 
     // make a get request to the url
     fetch(weatherApiUrl)
@@ -41,7 +43,7 @@ var getLocations = function (local) {
                 console.log(response);
                 response.json().then(function (data) {
                     console.log(data);
-                    showLocation(data, user);
+                    showLocation(data, local);
                 });
             } else {
                 alert('Error: location information not found');
@@ -50,10 +52,12 @@ var getLocations = function (local) {
         .catch(function (error) {
             alert('Unable to load site')
         });
+        
 };
 
 
-//show popular cities!!!
+//show popular cities!!! -- put under here
+
 
 
 var showLocation = function (locals, localSearch) {
@@ -81,6 +85,7 @@ var showLocation = function (locals, localSearch) {
 
 //add listeners to forms
 searchFormEl.addEventListener('submit', formSubmissionPiece);
+console.log(searchFormEl);
 
 //cut fetch logic
     // fetch('https://api.openweathermap.org/data/2.5/weather?q=' + local.value + 
