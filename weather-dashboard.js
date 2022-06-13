@@ -4,60 +4,72 @@ var locationEntryEl = document.querySelector("#location");
 var mapContainerEl = document.querySelector("#map-container");
 var mapSearchTerm = document.querySelector("#map-search-term");
 
-var formSubmissionPiece = function(event) {
-//prevent page from refreshing
-event.preventDefault();
+var formSubmissionPiece = function (event) {
+    //prevent page from refreshing
+    event.preventDefault();
 
-//get value from location input
-var locationEntry = locationEntryEl.value.trim();
+    //get value from location input
+    var location = locationEntryEl.value.trim();
 
-if (location) {
-    getLocationInfo(location);
+    if (location) {
+        getLocationInfo(location);
 
-    //clear content
-    mapContainerEl.textContent = "";
-    locationEntryEl.value = "";
-} else {
-    alert("Please enter a location");
-}
-
-
-}
-
-// var submitClickAction = function(event) {
-//     //getting the city attribue from clicked element
-//     var cities = event.target.getAttribute("cities-container")
-// }
-
-var getLocations = function(local) {
-    //format the weather api url
-    var weatherApiUrl = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key" + local;
-
-
-//make a get request to the url
-fetch(getLocations) 
-.then(function(response)  {
-    //request was successful
-    if (response.ok) {
-    console.log(response);
-    response.json().then(function(data) {
-        console.log(data);
-        showLocation(data, user);
-    });
+        //clear content
+        mapContainerEl.textContent = "";
+        locationEntryEl.value = "";
     } else {
-        alert('Error: location information not found');
+        alert("Please enter a location");
     }
-    })
-    .catch(function(error) {
-        alert('Unable to load site')
-    });
+
+
+}
+
+var submitClickAction = function (event) {
+    //getting the city attribue from clicked element
+    var local = event.target.getAttribute("cities-container")
+}
+
+var getLocations = function (local) {
+    // format the weather api
+    var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + local.value +
+        '&appid=34e427a196fd7b57ef7effa0b02aee0c'
+
+    // fetch('https://api.openweathermap.org/data/2.5/weather?q=' + local.value + 
+    // '&appid=34e427a196fd7b57ef7effa0b02aee0c')
+
+    // .then(response => response.json())
+    // .then(data = console.log(data))
+
+    // .catch(function(error) {
+    //             alert('Unable to load site')
+
+    // make a get request to the url
+    fetch(weatherApiUrl)
+        .then(function (response) {
+            //request was successful
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+                    console.log(data);
+                    showLocation(data, user);
+                });
+            } else {
+                alert('Error: location information not found');
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to load site')
+        });
 };
-    var showLocation = function(locals, localSearch) {
-        //check if api returned any locations
-        if (locals.length === 0) {
-            mapContainerEl.textContent = 'No cities found';
-        } return;
-  
+
+//show popular cities!!!
+
+var showLocation = function (locals, localSearch) {
+    //check if api returned any locations
+    if (locals.length === 0) {
+        mapContainerEl.textContent = 'No cities found';
+        return;
+    }
 
     mapSearchTerm.textContent = localSearch;
 
@@ -75,4 +87,5 @@ fetch(getLocations)
 
 };
 
-
+//add listeners to forms
+searchFormEl.addEventListener('submit', formSubmissionPiece);
