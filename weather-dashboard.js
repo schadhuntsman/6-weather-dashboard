@@ -4,10 +4,11 @@ var locationEntryEl = document.querySelector("#location");
 var mapContainerEl = document.querySelector("#map-container");
 var mapSearchTerm = document.querySelector("#map-search-term");
 
+
 var formSubmissionPiece = function (event) {
     //prevent page from refreshing
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     //get value from location input
     var location = locationEntryEl.value.trim();
 
@@ -26,34 +27,62 @@ var formSubmissionPiece = function (event) {
 var submitClickAction = function (event) {
     //getting the city attribue from clicked element
     var local = event.target.getAttribute("cities-container")
-    console.log(event);
-    console.log(local);
+    // console.log(event);
+    // console.log(local);
 };
 
-var getLocations = function (local) {
+var getLocations = function (location) {
     // format the weather api
     var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' 
-    + searchFormEl.value + '&appid=34e427a196fd7b57ef7effa0b02aee0c'
+    + location + '&appid=34e427a196fd7b57ef7effa0b02aee0c&units=imperial'
 
     // make a get request to the url
     fetch(weatherApiUrl)
         .then(function (response) {
-            //request was successful
-            if (response.ok) {
-                console.log(response);
-                response.json().then(function (data) {
-                    console.log(data);
-                    showLocation(data, local);
-                });
-            } else {
-                alert('Error: location information not found');
-            }
-        })
+            //request was successful               
+                
+                return response.json();
+        }
+        )
+                .then(function (data) { 
+                    
+                    //json is the response from api
+                    console.log(data);                   
+                    //get the city name   
+                    date = new Date(data.dt * 1000)                          
+           document.getElementById('cityName').textContent = data.name + "(" + (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")";
+         
+        }) 
         .catch(function (error) {
             alert('Unable to load site')
         });
+       
+       
+ 
+    
         
-};
+        var forecastApiUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&exclude=current,hourly,minutely,alerts&units=metric&appid=34e427a196fd7b57ef7effa0b02aee0c&units=imperial'
+        
+        forecastApiUrl = forecastApiUrl + 
+        // make a get request to the url
+        fetch(forecastApiUrl)
+            .then(function (response5Day) {
+                //request was successful               
+                    
+                    return response5Day.json();
+            }
+            )
+                    .then(function (dataForecast) { 
+                        
+                        //json is the response from api
+                        console.log(dataForecast);                   
+                        // //get the city name   
+                        // date = new Date(data.dt * 1000)                          
+              // document.getElementById('date1').textContent = 
+        // data.main
+        
+        
+});
 
 
 //show popular cities!!! -- put under here
@@ -82,7 +111,7 @@ var showLocation = function (locals, localSearch) {
 
 
 };
-
+}
 //add listeners to forms
 searchFormEl.addEventListener('submit', formSubmissionPiece);
 console.log(searchFormEl);
