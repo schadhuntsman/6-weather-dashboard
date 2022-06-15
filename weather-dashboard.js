@@ -67,10 +67,10 @@ var getLocations = function (location) {
 
         //    console.log(data.main.humidity);
 
-           document.getElementById('uvIndex').textContent = 
-           data.main.uvi;
+        //    document.getElementById('uvIndex').textContent = 
+        //    data.main.uvi;
 
-           console.log(data.main.uvi);
+        //    console.log(data.main.uvi);
 
          
         }) 
@@ -82,28 +82,28 @@ var getLocations = function (location) {
  
     
         
-        // var forecastApiUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+ lon '&exclude=current,hourly,minutely,alerts&units=metric&appid=34e427a196fd7b57ef7effa0b02aee0c&units=imperial'
+        // var forecastApiUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=current,hourly,minutely,alerts&units=metric&appid=34e427a196fd7b57ef7effa0b02aee0c&units=imperial'
         
         // forecastApiUrl = forecastApiUrl + 
-        // // make a get request to the url
+        // // // make a get request to the url
         // fetch(forecastApiUrl)
         //     .then(function (response5Day) {
-        //         //request was successful               
-                    
+        // //         //request was successful               
         //             return response5Day.json();
         //     }
+          
         //     )
         //             .then(function (dataForecast) { 
                         
         //                 //json is the response from api
         //                 console.log(dataForecast);                   
         //                 // //get the city name   
-                        // date = new Date(data.dt * 1000)                          
-              // document.getElementById('date1').textContent = 
+        //                 date = new Date(data.dt * 1000)                          
+        //       document.getElementById('date1').textContent = 
         // data.main
         
         
-// });
+};
 
 
 //show popular cities!!! -- put under here
@@ -132,7 +132,7 @@ var showLocation = function (locals, localSearch) {
 
 
 };
-}
+
 //add listeners to forms
 searchFormEl.addEventListener('submit', formSubmissionPiece);
 console.log(searchFormEl);

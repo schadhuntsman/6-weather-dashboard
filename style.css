@@ -16,7 +16,7 @@ body {
 h1,
 h2,
 h3 {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'fantasy';
     line-height: 1.4;
 }
 
@@ -25,29 +25,26 @@ main {
     margin: 35px auto;
 }
 
-.btn {
-    text-decoration: none;
-    width: 14%;
-    display: block;
-    border-radius: 8px;
-    color: rgb(209, 209, 209);
-    font-weight: 700;
-    margin-top: 10px;
-    
-    background-color: rgb(53, 98, 221);
-    box-shadow: 2px 2px rgb(39, 39, 39);
-
-}
 
 .container {
     position: relative;
-    left: -20px;
-   top: -30px;
+    /* left: -20px;
+   top: -30px; */
     text-align: left;
     padding: 3% 5%;
     color: rgb(46, 46, 46);
     background-color: rgb(210, 181, 238);
     width: 100%;
+}
+
+.jumbotron {
+    position: relative;
+    max-height: 100%;
+}
+
+.searchContainer {
+    position: relative;
+    left: -60px
 }
 
 #header-undertext {
@@ -56,7 +53,7 @@ main {
     margin-left: 10px;
     align-items: top;
     position: relative;
-    top: -80px;
+    top: -10px;
     left: 15px;
     font-size: 1.1rem;
     font-weight: 600;
@@ -67,9 +64,32 @@ main {
     position: relative;
     top: -24px;
     border-radius: 25px;
+    text-align: center;
+}
+.searchContainer {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+
 }
 
+.btn {
+    text-decoration: none;
+    font-size: 1.2rem;
+    width: 90%;
+    display: block;
+    border-radius: 8px;
+    color: rgb(209, 209, 209);
+    font-weight: 700;
+    margin-top: 10px;
+    height: 40px;
+    background-color: rgb(53, 98, 221);
+    box-shadow: 2px 2px rgb(39, 39, 39);
+    margin-left: 22px;
+}
 
+#location {
+    position: relative;
+    max-width: 140%;
+}
 
 .listed-map {
     padding: 0;
