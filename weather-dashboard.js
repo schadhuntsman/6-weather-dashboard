@@ -51,6 +51,13 @@ var getLocations = function (location) {
                     //get the city name   
                     date = new Date(data.dt * 1000)                          
            document.getElementById('cityName').textContent = data.name + "(" + (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")";
+
+           var wind=document.getElementById('wind')
+           wind.textContent = data.wind
+           data;
+
+           console.log(data.wind);
+
          
         }) 
         .catch(function (error) {
