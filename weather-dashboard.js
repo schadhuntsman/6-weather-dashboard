@@ -63,7 +63,7 @@ var getLocations = function (location) {
         //    console.log(data.wind.speed);
 
         //    document.getElementById('humidity').textContent = 
-        //    data.hourly.humidity;
+        //    data.main.humidity
 
         //    console.log(data.main.humidity);
 
@@ -79,32 +79,49 @@ var getLocations = function (location) {
         });
        
        
- 
+    }
     
         
-        // var forecastApiUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=current,hourly,minutely,alerts&units=metric&appid=34e427a196fd7b57ef7effa0b02aee0c&units=imperial'
-        
-        // forecastApiUrl = forecastApiUrl + 
-        // // // make a get request to the url
-        // fetch(forecastApiUrl)
-        //     .then(function (response5Day) {
-        // //         //request was successful               
-        //             return response5Day.json();
-        //     }
-          
-        //     )
-        //             .then(function (dataForecast) { 
-                        
-        //                 //json is the response from api
-        //                 console.log(dataForecast);                   
-        //                 // //get the city name   
-        //                 date = new Date(data.dt * 1000)                          
-        //       document.getElementById('date1').textContent = 
-        // data.main
-        
-        
-};
+        var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&exclude=current,hourly,minutely,alerts&units=imperial&appid=34e427a196fd7b57ef7effa0b02aee0c"
 
+        // forecastApiUrl = forecastApiUrl + 
+        // // make a get request to the url
+        fetch(forecastApiUrl)
+        .then(function (responseForc) {
+            //request was successful               
+                
+                return responseForc.json();
+        }
+        )
+                .then(function (dataForecast) {
+
+                    document.getElementById('date1')
+                    .textContent = dataForecast.daily.dt0
+                    console.log(dataForecast);
+        const forecast = document.getElementById('forecast')
+        ;
+        forecast[0].classList.add(searchFormEl);
+                var forecastDay = "";
+                dataForecast.daily.forEach((value, index) => {
+                    if (index > 0) {
+                        
+                        var date1 = document.getElementById('cardDay1');
+
+                        date1 = new Date(value.dt * 1000).toLocaleDateString("en", {
+                            weekday: 'long',
+                        });
+                        var weatherIcon = value.weather[0].weatherIcon;
+                        var forcastTemp = value.forcastTemp.day.toFixed(0);
+                        forecastDay = `<div class="forecast-day">
+                                        <h5>${date1}</h5>
+                                        <p><span class="ico-${icon}" title=${icon}"></span><p>
+                                        <div class="forecast-day--temp">${temp}<sup>°C</sup></div>
+					</div>`;
+					forecast[0].insertAdjacentHTML('beforeend', forecastDay);
+                    }       console.log(dataForecast);
+                })      
+ });              document.getElementById('cardDay1').textContent = dataForecast.main.temp;
+                
 
 //show popular cities!!! -- put under here
 
