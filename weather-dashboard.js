@@ -112,10 +112,10 @@ var getLocations = function (location) {
                         });
                         var weatherIcon = value.weather[0].weatherIcon;
                         var forcastTemp = value.forcastTemp.day.toFixed(0);
-                        forecastDay = `<div class="forecast-day">
+                        forecastDay = `<div class="forecast">
                                         <h5>${date1}</h5>
                                         <p><span class="ico-${icon}" title=${icon}"></span><p>
-                                        <div class="forecast-day--temp">${temp}<sup>°C</sup></div>
+                                        <div class="forecast--temp">${temp}<sup>°F</sup></div>
 					</div>`;
 					forecast[0].insertAdjacentHTML('beforeend', forecastDay);
                     }       console.log(dataForecast);
