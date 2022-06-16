@@ -117,7 +117,7 @@ var getLocations = function (location) {
                         // data.wind.speed + " mph";
                        
                         document.date1.textContent = 
-                        dataForecast.Object.daily.dt + "it's wokring"
+                        dataForecast.list + "it's wokring"
                         
                         document.date1.textContent = forecastDay.dataForecast
                     console.log(dataForecast);
