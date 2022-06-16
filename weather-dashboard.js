@@ -55,7 +55,7 @@ var getLocations = function (location) {
            document.getElementById('wind').textContent = 
            data.wind.speed + " mph";
 
-        //    console.log(data.wind.speed);
+           console.log(data);
 
            document.getElementById('temp').textContent = 
            data.main.temp + "°F";
@@ -82,7 +82,7 @@ var getLocations = function (location) {
     }
     
         
-        var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&exclude=current,hourly,minutely,alerts&units=imperial&appid=34e427a196fd7b57ef7effa0b02aee0c"
+        var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&exclude=current,hourly,minutely,alerts&units=imperial&appid=34e427a196fd7b57ef7effa0b02aee0c";
 
         // forecastApiUrl = forecastApiUrl + 
         // // make a get request to the url
@@ -106,7 +106,16 @@ var getLocations = function (location) {
                     if (index > 0) {
                         
                         var date1 = document.getElementById('cardDay1');
-
+                        var date2 = document.getElementById('cardDay2');
+                        var date3 = document.getElementById('cardDay3');
+                        var date4 = document.getElementById('cardDay4');
+                        var date5 = document.getElementById('cardDay5');
+                       
+                        document.date1.textContent = 
+                        forecastDay + "it's wokring"
+                        
+                        document.date1.textContent = forecastDay.dataForecast
+                    console.log(dataForecast);
                         date1 = new Date(value.dt * 1000).toLocaleDateString("en", {
                             weekday: 'long',
                         });
@@ -115,12 +124,12 @@ var getLocations = function (location) {
                         forecastDay = `<div class="forecast">
                                         <h5>${date1}</h5>
                                         <p><span class="ico-${icon}" title=${icon}"></span><p>
-                                        <div class="forecast--temp">${temp}<sup>°F</sup></div>
+                                        <div class="forecast-day--temp">${temp}<sup>°F</sup></div>
 					</div>`;
-					forecast[0].insertAdjacentHTML('beforeend', forecastDay);
-                    }       console.log(dataForecast);
+					forecast[0].insertAdjacentHTML('beforeend', forecastDay); console.log(dataForecast);
+                    }       
                 })      
- });              document.getElementById('cardDay1').textContent = dataForecast.main.temp;
+ });             
                 
 
 //show popular cities!!! -- put under here

@@ -13,7 +13,110 @@
   <title>Document</title>
 </head>
 
-<body class="container">
+<body class="container"><!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
+  
+    <title>Document</title>
+  </head>
+  
+  <body class="container">
+  
+    <header>
+      <h1>Weather Dashboard</h1>
+      <p id="header-undertext">Search for an area and get the weather forecasts from trusted sources!</p>
+    </header>
+  
+    <div class="container row">
+      <div class="searchContainer col-3">
+        <h3 class="search-form" for="city">SEARCH CITY</h3>
+        <form id="search-label" class="text-input">
+          <input name="location" id="location" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <div class="col-9">
+        <div class="jumbotron  d-flex-column">
+          <h1 id="cityName">City Name</h1>
+          <p id="wind">Wind</p>
+          <p id="temp">Temp</p>
+          <p id="humidty">Humidity</p>
+          <p id="uvIndex">Uv Index</p>
+          
+          <div class="forecast">
+          
+            <div class="row">
+            <div class="card col-2" id="forecastHolder">
+              <div class="card-body">
+                <h5 class="cardDay1" id="date1">Day 1</h5>
+                <!-- <h6 class="mb-2 text-muted"></h6> -->
+                <p class="">Day 1 Info</p>
+              </div>
+            </div>
+  
+            <div class="card col-2">
+              <div class="card-body">
+                <h5 class="cardDay2" id="date2">Day 2</h5>
+                <!-- <h6 class="mb-2 text-muted"></h6> -->
+                <p class="">Day 2 Info</p>
+              </div>
+            </div>
+  
+            <div class="card col-2">
+              <div class="card-body">
+                <h5 class="cardDay3" id="date3">Day 3</h5>
+                <!-- <h6 class="mb-2 text-muted"></h6> -->
+                <p class="">Day 3 Info</p>
+              </div>
+            </div>
+  
+            <div class="card col-2">
+              <div class="card-body">
+                <h5 class="cardDay4" id="date4">Day 4y</h5>
+                <!-- <h6 class="mb-2 text-muted"></h6> -->
+                <p class="">Day 4 Info</p>
+              </div>
+            </div>
+  
+            <div class="card col-2">
+              <div class="card-body">
+                <h5 class="cardDay5" id="date5">Day 5</h5>
+                <!-- <h6 class="mb-2 text-muted"></h6> -->
+                <p class="">Day 5 Info</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+      <div class="container">
+        <h3 class="container-header">Popular Cities <span id=listed-cities></span></h3>
+        <div id="cities-container" class="listed-cities">
+        </div>
+  
+        <div class="col-12 col-md-8">
+          <h2 class="under-text">Showing Area For: <span id="map-search-term"></span></h2>
+          <div id="map-container" class="listed-map">
+  
+          </div>
+        </div>
+  
+        <script src="./weather-dashboard.js"></script>
+  </body>
+  
+  </html>
+  </body>
+  
+  </html>
 
   <header>
     <h1>Weather Dashboard</h1>
@@ -42,40 +145,40 @@
           <div class="card col-2" id="forecastHolder">
             <div class="card-body">
               <h5 class="cardDay1" id="date1">Day 1</h5>
-              <!-- <h6 class="mb-2 text-muted"></h6> -->
-              <p class="">Day 1 Info</p>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Day 1 description</p>
             </div>
           </div>
 
           <div class="card col-2">
             <div class="card-body">
               <h5 class="cardDay2" id="date2">Day 2</h5>
-              <!-- <h6 class="mb-2 text-muted"></h6> -->
-              <p class="">Day 2 Info</p>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Day 2 description</p>
             </div>
           </div>
 
           <div class="card col-2">
             <div class="card-body">
               <h5 class="cardDay3" id="date3">Day 3</h5>
-              <!-- <h6 class="mb-2 text-muted"></h6> -->
-              <p class="">Day 3 Info</p>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Day 3 description</p>
             </div>
           </div>
 
           <div class="card col-2">
             <div class="card-body">
               <h5 class="cardDay4" id="date4">Day 4y</h5>
-              <!-- <h6 class="mb-2 text-muted"></h6> -->
-              <p class="">Day 4 Info</p>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Day 4 description</p>
             </div>
           </div>
-
+          
           <div class="card col-2">
             <div class="card-body">
               <h5 class="cardDay5" id="date5">Day 5</h5>
-              <!-- <h6 class="mb-2 text-muted"></h6> -->
-              <p class="">Day 5 Info</p>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Day 5 description</p>
             </div>
           </div>
         </div>
