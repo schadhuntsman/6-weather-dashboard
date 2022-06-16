@@ -50,7 +50,9 @@ var getLocations = function (location) {
                     console.log(data);                   
                     //get the city name   
                     date = new Date(data.dt * 1000)                          
-           document.getElementById('cityName').textContent = data.name + "(" + (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")";
+           document.getElementById('cityName').textContent = data.name
+            + "(" + (date.getMonth()+1) + "/" + date.getDate() 
+            + "/" + date.getFullYear() + ")";
 
            document.getElementById('wind').textContent = 
            data.wind.speed + " mph";
@@ -111,8 +113,11 @@ var getLocations = function (location) {
                         var date4 = document.getElementById('cardDay4');
                         var date5 = document.getElementById('cardDay5');
                        
+                        // document.getElementById('wind').textContent = 
+                        // data.wind.speed + " mph";
+                       
                         document.date1.textContent = 
-                        forecastDay + "it's wokring"
+                        dataForecast.Object.daily.dt + "it's wokring"
                         
                         document.date1.textContent = forecastDay.dataForecast
                     console.log(dataForecast);
