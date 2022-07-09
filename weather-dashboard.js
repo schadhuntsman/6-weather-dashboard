@@ -62,6 +62,18 @@ var getLocations = function (location) {
            document.getElementById('temp').textContent = 
            data.main.temp + "°F";
 
+           document.getElementById('humidity').textContent = 
+           data;
+           console.log()
+
+           document.getElementById('uvIndex').textContent = 
+           data;
+    
+             const lat = data.coord.lat;
+             const lon = data.coord.lon;
+
+
+
         //    console.log(data.wind.speed);
 
         //    document.getElementById('humidity').textContent = 
@@ -73,19 +85,8 @@ var getLocations = function (location) {
         //    data.main.uvi;
 
         //    console.log(data.main.uvi);
-
-         
-        }) 
-        .catch(function (error) {
-            alert('Unable to load site')
-        });
-       
-       
-    }
-    
-        
-        var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&exclude=current,hourly,minutely,alerts&units=imperial&appid=34e427a196fd7b57ef7effa0b02aee0c";
-
+        var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + (lat) + "&lon=" + (lon) + "&exclude=current,hourly,minutely,alerts&units=imperial&appid=34e427a196fd7b57ef7effa0b02aee0c";
+                    console.log(forecastApiUrl)
         // forecastApiUrl = forecastApiUrl + 
         // // make a get request to the url
         fetch(forecastApiUrl)
@@ -100,10 +101,11 @@ var getLocations = function (location) {
                     document.getElementById('date1')
                     .textContent = dataForecast.daily.dt0
                     console.log(dataForecast);
-        const forecast = document.getElementById('forecast')
-        ;
+        const forecast = document.getElementById('forecast');
+        
         forecast[0].classList.add(searchFormEl);
                 var forecastDay = "";
+
                 dataForecast.daily.forEach((value, index) => {
                     if (index > 0) {
                         
@@ -136,6 +138,17 @@ var getLocations = function (location) {
                 })      
  });             
                 
+         
+        }) 
+        .catch(function (error) {
+            alert('Unable to load site')
+        });
+       
+       
+    }
+    
+        
+       
 
 //show popular cities!!! -- put under here
 
